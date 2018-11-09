@@ -7,7 +7,8 @@ import FastClick from 'fastclick'
 import $ from 'jquery'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.min.js'
-
+import iView from 'iview'
+import 'iview/dist/styles/iview.css'
 
 FastClick.attach(document.body)
 

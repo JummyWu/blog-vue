@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="logo" href="#">J&M</a>
+                    <router-link class="logo" to="/">J&M</router-link>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -11,16 +11,15 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto" id="menu">
                             <li>
-                                <a href="/">Home</a>
+                                <router-link to="/">Home</router-link>
                             </li>
                             <li>
-                                <a href="/">Link</a>
+                                <router-link to="/">Link</router-link>
                             </li>
                         </ul>
-                        <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn my-2 my-sm-0" type="submit">Search</button>
-                        </form>
+                        <div class="search-view">
+                            <serach-view></serach-view> 
+                        </div>
                     </div>
                 </nav>
             </div>
@@ -29,8 +28,12 @@
 </template>
 
 <script>
+import SerachView from '../../serach/SearchView.vue'
 export default {
     name: 'Header',
+    components: {
+        SerachView,
+    }
 }
 </script>
 
@@ -49,6 +52,7 @@ export default {
     }
     #menu a {
         color: #17375E;
+        font-size: 1rem;
     }
     #menu li:hover>a {
         color: #17375E;
