@@ -10,7 +10,11 @@ import 'bootstrap/dist/js/bootstrap.min.js'
 import iView from 'iview'
 import 'iview/dist/styles/iview.css'
 
+import axios from 'axios';
+
 FastClick.attach(document.body)
+
+Vue.prototype.axios = axios;
 
 Vue.config.productionTip = false
 
