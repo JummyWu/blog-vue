@@ -6,7 +6,10 @@ const CommonFooter = () => System.import('@/pages/footer/CommonFooter')
 import Home from '@/pages/home/Home'
 import HomeContent from '@/pages/content/HomeContent'
 import Detail from '@/pages/detail/Detail'
-import Recommend from '@/pages/content/components/Recommend'
+import CategoryList from '@/pages/cateogry/CategoryList'
+import CategoryDetail from '@/pages/cateogry/CategoryDetail'
+import TagList from '@/pages/tag/TagList'
+import TagDetail from '@/pages/tag/TagDetail'
 
 
 Vue.use(Router)
@@ -48,16 +51,54 @@ export default new Router({
           }
         },
         {
-          path: 'category/:id',
-          name: 'category',
+          path: 'category',
+          name: 'categorylist',
           components: {
             header: Home,
-            content: Recommend,
+            content: CategoryList,
             footer: CommonFooter,
           },
           meta: {
             title: '分类',
           }
+        },
+        {
+          path: 'category/:id',
+          name: 'category',
+          components: {
+            header: Home,
+            content: CategoryDetail,
+            footer: CommonFooter,
+          },
+          props: true,
+          meta: {
+            title: '分类详情',
+          }
+        },
+        {
+          path: 'tag',
+          name: 'taglist',
+          components: {
+            header: Home,
+            content: TagList,
+            footer: CommonFooter,
+          },
+          meta: {
+            title: '标签',
+          }
+        },
+        {
+          path: 'tag/:id',
+          name: 'tag',
+          components: {
+            header: Home,
+            content: TagDetail,
+            footer: CommonFooter,
+          },
+          props: true,
+          meta: {
+            title: '标签详情',
+          },
         },
       ]
     }

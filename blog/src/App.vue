@@ -13,6 +13,7 @@ export default {
 <style>
     body {
         color: #17375E; background-color: #f4f5f7;
+        font-size: 16px;
         font-family: "Roboto", Helvetica, "Lucida Sans", "Microsoft YaHei", Georgia, Arial, Sans-serif;
     }
     a {

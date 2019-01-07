@@ -13,14 +13,15 @@
 import SectionTitle from './components/SectionTitle'
 import ArticleListContent from './ArticleListContent'
 import LayoutRight from './LayoutRight'
-export default {
+
+  export default {
     name: 'HomeContent',
     components: {
         SectionTitle,
         ArticleListContent,
         LayoutRight,
     }
-}
+  }
 </script>
 
 <style>

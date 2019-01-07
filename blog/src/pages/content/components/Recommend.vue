@@ -1,11 +1,13 @@
 <template>
     <div class="white-board widget">
-        <h5 class="widget-title">分类</h5>
-        <ul class="social-list">
-            <li v-for="item in category" :key="item.id">
-                <router-link :to="{name: 'category', params:{id:item.id}}">{{ item.name }}</router-link>
-                <span>{{ item.add_time }}</span>
-            </li>
+        <h5 class="widget-title">
+          <router-link :to="{name: 'categorylist'}">分类</router-link>
+        </h5>
+        <ul class="category-list-all">
+          <li v-for="item in category" :key="item.id">
+            分类名:<router-link :to="{name: 'category', params:{id: item.id}}">{{ item.name }}</router-link>
+            创建时间: <span>{{ item.add_time }}</span>
+          </li>
         </ul>
     </div>
 </template>
@@ -22,25 +24,25 @@
     },
     methods: {
       initCategory() {
-        getCategory({
-          params: {}
-        }).then((response) => {
-          console.log(response)
-          this.category = response.data
+        category().then((respaonse) => {
+          this.category = respaonse.data.results;
         })
-          .catch(function (error) {
-            console.log(error)
-          });
       }
     },
     mounted() {
       const that = this;
-      this.axios.get('http://127.0.0.1:8000/api/category/1/').then(res=>this.category=res.data)
-        .catch(error => console.log(error))
+      that.initCategory();
+    },
+    watch: {
+      "$route": "initCategory"
     }
   }
 </script>
 
 <style lang="css">
-    
+    .category-list-all li {
+      padding-bottom: 5px;
+      padding-top: 3px;
+      list-style-type: none;
+    }
 </style>
